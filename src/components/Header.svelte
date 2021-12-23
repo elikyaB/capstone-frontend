@@ -25,8 +25,8 @@
     <Link to="/new">
         <h2>Nova</h2>
     </Link>
-    <h2 on:click="{random}">Fortuna</h2>
-    <h2 on:click="{deleteAll}">Delere</h2>
+    <h2 on:click={random}>Fortuna</h2>
+    <h2 on:click={deleteAll}>Delere</h2>
 </div>
 
 <style></style>

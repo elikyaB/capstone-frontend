@@ -5,16 +5,15 @@
     let term = ""
 
     let handleSubmit = async(event) => {
-        event.preventDefault()
         navigate("/search/"+term, {replace: true})
     }
 
 </script>
 
 <div>
-    <form on:submit="{handleSubmit}">
+    <form on:submit|preventDefault={handleSubmit}>
         <input type="text" placeholder="search" bind:value="{term}">
-        <input type="submit" bind:value="{buttonLabel}">
+        <input type="submit" bind:value={buttonLabel}>
     </form>
 </div>
 

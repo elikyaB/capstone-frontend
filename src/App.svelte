@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte"
   import { Router, Route, navigate } from "svelte-routing"
+  import 'bulma/css/bulma.css'
   import AllNotes from "./components/AllNotes.svelte"
   import SingleNote from "./components/SingleNote.svelte"
   import Form from "./components/Form.svelte"
@@ -16,7 +17,6 @@
     const response = await fetch(backend)
     const data = await response.json()
     notes = data
-    console.log(notes)
   }
 
   const deleteNote = async (url, id) => {

@@ -1,5 +1,6 @@
 <script>
     import { navigate } from "svelte-routing"
+    import { Input, Button } from "svelma"
     import { loremIpsum } from "lorem-ipsum"
 
     export let notes 
@@ -11,8 +12,7 @@
     let title = "" 
     let body = "" 
 
-    let handleSubmit = async (event) => {
-        event.preventDefault()
+    let handleSubmit = async () => {
         await fetch(url, {
             method: "post",
             headers: {"Content-Type": "application/json"},
@@ -28,8 +28,7 @@
         title = note.title
         body = note.body
 
-        handleSubmit = async (event) => {
-            event.preventDefault()
+        handleSubmit = async () => {
             await fetch(url + id + "/", {
                 method: "put",
                 headers: {"Content-Type": "application/json"},
@@ -42,8 +41,7 @@
 
     let autoFillLabel = "Autofill"
 
-    let autoFill = (event) => {
-        event.preventDefault()
+    let autoFill = () => {
         if (body == "" || body.endsWith(". ")) {
             body += loremIpsum() + " "
         } else if (body.endsWith(" ") || body.endsWith(".")) {
@@ -54,13 +52,13 @@
 </script>
 
 <div>
-<form on:submit="{handleSubmit}">
-    <input type="text" placeholder="title" bind:value="{title}" />
-    <input type="textarea" placeholder="body" bind:value="{body}" />
-    
+<form on:submit|preventDefault={handleSubmit}>
+    <Input type="text" placeholder="title" bind:value={title} />
+    <Input type="textarea" placeholder="body" bind:value={body} />
+
     <div>
-    <input type="button" bind:value="{autoFillLabel}" on:click="{autoFill}" />
-    <input type="submit" bind:value="{buttonLabel}" />
+    <Button type="is-primary" on:click={autoFill}>Autofill</Button>
+    <Button type="is-primary" nativeType="submit">Submit</Button>
     </div>
 </form>
 </div>
