@@ -1,6 +1,5 @@
 <script>
-    import {Link, navigate} from "svelte-routing"
-    import { Button } from 'svelma'
+    import {Link} from "svelte-routing"
 
     export let notes
     export let id
@@ -11,11 +10,11 @@
 </script>
 
 <div>
-    <h1>{note.title}</h1>
+    <h1 class="title">{note.title}</h1>
     <h2>{note.body}</h2>
-    <Link to="/"><Button>Back</Button></Link>
-    <Link to={'/edit/' + note.id}><Button>Edit</Button></Link>
-    <Button type="is-danger" on:click={deleteNote(url, id)}>Delete</Button>
+    <Link to="/"><button class="button is-link is-outlined">Back</button></Link>
+    <Link to={'/edit/' + note.id}><button class="button is-primary is-outlined">Edit</button></Link>
+    <button class="button is-danger is-outlined" on:click={deleteNote(url, id)}>Delete</button>
 </div>
     
 <style>

@@ -8,7 +8,7 @@
   <Bar />
   {#each notes as note}
     <div class="block">
-      <Link to="{'/notes/'+note.id}"><h1>{note.title}</h1></Link>
+      <Link to="{'/notes/'+note.id}"><h1 class="title">{note.title}</h1></Link>
       <h2>{note.body}</h2>
     </div>
   {/each}

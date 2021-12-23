@@ -10,15 +10,17 @@
         }
     }
 
+    // <input type="text" placeholder="search" bind:value={term}/>
+    // <Button type="is-dark" nativeType="submit">Search</Button>
 </script>
 
-<div class="columns">
-    <form on:submit|preventDefault={handleSubmit}>
-        <div class="column is-half"><input class="input" type="text" placeholder="search" bind:value={term}/></div>
-        <div><Button type="is-dark" nativeType="submit">Search</Button></div>
+<div>
+    <form class="field has-addons" on:submit|preventDefault={handleSubmit}>
+        <div class="control is-expanded" id="bar"><input class="input" type="text" placeholder="search" bind:value={term}/></div>
+        <div class="control"><button class="button is-dark is-outlined" type="submit">Search</button></div>
     </form>
 </div>
 
 <style>
-
+    /* #bar {max-width:80vw; margin: 0 auto;} */
 </style>

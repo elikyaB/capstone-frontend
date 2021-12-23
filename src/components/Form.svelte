@@ -1,6 +1,5 @@
 <script>
     import { navigate } from "svelte-routing"
-    import { Input, Button } from "svelma"
     import { loremIpsum } from "lorem-ipsum"
 
     export let notes 
@@ -49,12 +48,12 @@
 
 <div>
 <form on:submit|preventDefault={handleSubmit}>
-    <Input type="text" placeholder="title" bind:value={title} />
-    <Input type="textarea" placeholder="body" bind:value={body} />
+    <input class="input" type="text" placeholder="title" bind:value={title} />
+    <input class="textarea" type="textarea" placeholder="body" bind:value={body} />
 
     <div>
-    <Button type="is-light" on:click={autoFill}>Autofill</Button>
-    <Button type="is-dark" nativeType="submit">Submit</Button>
+    <button class="button is-dark is-outlined" on:click|preventDefault={autoFill}>Autofill</button>
+    <button class="button is-dark is-outlined" type="submit">Submit</button>
     </div>
 </form>
 </div>
