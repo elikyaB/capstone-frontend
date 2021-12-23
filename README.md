@@ -14,11 +14,10 @@ This is the frontend for the Notare 2.0 App, utilizing API from the [Masonite-He
 
 | Route | URL | Description |
 | ----- | --- | ----------- |
-| Index | `/` | GET all notes |
-| Create | `/new` | POST creates a new note |
-| Update | `/note/:id` | PUT updates a note |
-| Destroy | `/note/:id` | DELETE destroys a note
-| Show | `/note/:id` | GET for one note |
+| AllNotes | `/` | Index page |
+| Form | `/new` | Create page |
+| SingleNote | `/note/:id` and `/edit:id` | Show, Destroy, and Update page |
+| Search | `/search/:term` | filtered Index page |
 
 ## Components
 - AllNotes - show all the notes
@@ -48,15 +47,16 @@ App
 - As a user, I can delete a note so I can keep my list relevant.
 - As a user, I can delete all notes to start fresh.
 - As a user, I can click a button to go to a random note.
+- As a user, I can filter through notes with a search term.
 - As a mobile user, I can click on the abbreviated text of a note to bring up a modal with the full content
 
 ## Development Notes
 
-## Svelte
+## Svelte Setup
 Most issues boiled down to getting Svelte setup through to the deploy, including getting various plugins rendering properly. Although Svelte should be performing great on Vercel I ran into unexpected build bugs and went back to ol' faithful Netlify.
 
-## LoremIpsum Autofill, Random, and Delere Functions
-These were mostly an exercise in translating from my last React Project to Svelte.
+## Search, LoremIpsum Autofill, Random, and Delere Functions
+These were mostly an exercise in translating from my last React Project to Svelte. Had some issues getting the random function to auto-populate the Link component in Svelte, which suggests it works differently under the hood than the React one. The search function could be updated to handle more complex RegEx expressions, but I didn't have the time to hash it out.
 
 ## Bulma and the Modals
 I was pleasantly surprised at the simplistic effectiveness of Bulma, a library I have never used yet. It made the process of putting together a modal, which I had difficulties with before, quite seamless. It also massively cut down on the overall amount of CSS I am used to writing. For Svelte Bulma has a variant called Svelma, which seemed to have potential as ready-made Svelte components. While that would cut down on the long lines of DOM element class names, I ultimately found Svelma lacking the robust functional interplay of pure Bulma. To be fair, Svelma is a brand new work in progress, and one that I'm thinking of contributing to in the future.

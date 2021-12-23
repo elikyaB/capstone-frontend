@@ -3,7 +3,6 @@
   import Bar from "./Bar.svelte"
   export let notes
   export let term
-
 </script>
 
 <div>
