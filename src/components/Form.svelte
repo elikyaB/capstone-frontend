@@ -49,7 +49,7 @@
 <div>
 <form on:submit|preventDefault={handleSubmit}>
     <input class="input" type="text" placeholder="title" bind:value={title} />
-    <input class="textarea" type="textarea" placeholder="body" bind:value={body} />
+    <textarea class="textarea" type="textarea" placeholder="body" rows="20" bind:value={body} />
 
     <div>
     <button class="button is-dark is-outlined" on:click|preventDefault={autoFill}>Autofill</button>

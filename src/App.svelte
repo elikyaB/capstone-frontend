@@ -34,7 +34,7 @@
   <Router url="{url}">
     <Header url={backend} notes={notes} deleteNote={deleteNote}/>
 
-    <main>
+    <main class="container">
     <Route path="/notes/:id" let:params>
       <SingleNote notes={notes} id={params.id} url={backend} deleteNote={deleteNote}/>
     </Route>
