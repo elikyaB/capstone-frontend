@@ -56,7 +56,23 @@
 
 
 <style>
-  @import url('');
+  @import url('https://fonts.googleapis.com/css2?family=Romanesco&family=Teko&display=swap');  
+
+  :global(.columns *){
+    font-family: 'Romanesco';
+    font-size: 2rem;
+  }
+  :global(.columns .title){
+    font-size: 3rem;
+    border-right: 1px solid black;
+  }
+  :global(.columns){
+    border-bottom: 1px solid black;
+    margin: 0px !important;
+  }
+  :global(#search){
+    margin-top: 0;
+  }
   .app {
     text-align: center
   }
