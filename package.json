@@ -21,6 +21,7 @@
     "test": "web-test-runner \"src/**/*.test.js\""
   },
   "dependencies": {
+    "lorem-ipsum": "^2.0.4",
     "svelte": "^3.37.0",
     "svelte-routing": "^1.6.0"
   },

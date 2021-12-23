@@ -1,5 +1,6 @@
 <script>
     import { navigate } from "svelte-routing"
+    import { loremIpsum } from "lorem-ipsum"
 
     export let notes 
     export let id
@@ -22,7 +23,7 @@
     }
 
     if (id) {
-        buttonLabel = "edit"
+        buttonLabel = "Confirm Edit"
         const note = notes.find((p) => p.id == id)
         title = note.title
         body = note.body
@@ -38,14 +39,30 @@
             navigate("/", { replace: true })
         }
     }
+
+    let autoFillLabel = "Autofill"
+
+    let autoFill = (event) => {
+        event.preventDefault()
+        if (body == "" || body.endsWith(". ")) {
+            body += loremIpsum() + " "
+        } else if (body.endsWith(" ") || body.endsWith(".")) {
+            body = body.slice(0, body.length-1) 
+                + ". " + loremIpsum() + " "
+        } else {body += ". " + loremIpsum() + " "}
+    }
 </script>
 
 <div>
-    <form on:submit="{handleSubmit}">
-      <input type="text" placeholder="title" bind:value="{title}" />
-      <input type="text" placeholder="body" bind:value="{body}" />
-      <input type="submit" bind:value="{buttonLabel}" />
-    </form>
+<form on:submit="{handleSubmit}">
+    <input type="text" placeholder="title" bind:value="{title}" />
+    <input type="textarea" placeholder="body" bind:value="{body}" />
+    
+    <div>
+    <input type="button" bind:value="{autoFillLabel}" on:click="{autoFill}" />
+    <input type="submit" bind:value="{buttonLabel}" />
+    </div>
+</form>
 </div>
 
 <style></style>

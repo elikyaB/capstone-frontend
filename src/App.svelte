@@ -1,38 +1,59 @@
 <script>
   import { onMount } from "svelte"
-  import { Router, Route, Link } from "svelte-routing"
-  import AllNotes from "./pages/AllNotes.svelte"
-  import SingleNote from "./pages/SingleNote.svelte"
-  import Form from "./pages/Form.svelte"
+  import { Router, Route, navigate } from "svelte-routing"
+  import AllNotes from "./components/AllNotes.svelte"
+  import SingleNote from "./components/SingleNote.svelte"
+  import Form from "./components/Form.svelte"
+  import Search from "./components/Search.svelte"
+  import Header from "./components/Header.svelte"
+  
 
   export let url = "" 
+  let backend = "https://seirp-capstone-backend.herokuapp.com/notes/"
   let notes 
-  let baseURL = "https://seirp-capstone-backend.herokuapp.com/notes/"
-
+  
   const getNotes = async () => {
-    const response = await fetch(baseURL)
+    const response = await fetch(backend)
     const data = await response.json()
     notes = data
     console.log(notes)
   }
 
+  const deleteNote = async (url, id) => {
+    await fetch(url + id + "/", {method: "delete"})
+    getNotes()
+    navigate("/", {replace: true})
+  }
+
   onMount(() => getNotes())
 </script>
 
-<Router url="{url}">
-  <div class="app">
-  <h1>Notes</h1>
-  <Link to="/new"><button>Make New Note</button></Link>
 
-  <main>
-  <Route path="/notes/:id" let:params><SingleNote notes={notes} id={params.id} url={baseURL} getNotes={getNotes}/></Route>
-  <Route path="/new"><Form notes={notes} url={baseURL} getNotes={getNotes}/></Route>
-  <Route path="/edit/:id" let:params><Form notes={notes} id={params.id} url={baseURL} getNotes={getNotes}/></Route>
-  <Route path="/"><AllNotes notes={notes}/></Route>
-  </main>
+<div class="app">
+  
+  <Router url="{url}">
+    <Header url={backend} notes={notes} deleteNote={deleteNote}/>
 
-  </div>
-</Router>
+    <main>
+    <Route path="/notes/:id" let:params>
+      <SingleNote notes={notes} id={params.id} url={backend} deleteNote={deleteNote}/>
+    </Route>
+    <Route path="/new">
+      <Form notes={notes} url={backend} getNotes={getNotes}/>
+    </Route>
+    <Route path="/edit/:id" let:params>
+      <Form notes={notes} id={params.id} url={backend} getNotes={getNotes}/>
+    </Route>
+    <Route path="/search/:term" let:params>
+      <Search notes={notes} term={params.term}/>
+    </Route>
+    <Route path="/">
+      <AllNotes notes={notes}/>
+    </Route>
+    </main>
+  </Router>
+</div>
+
 
 <style>
   .app {
