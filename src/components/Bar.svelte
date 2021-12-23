@@ -1,7 +1,6 @@
 <script>
     import { navigate } from "svelte-routing"
-    import { Input, Button } from "svelma"
-    
+
     let term = ""
 
     let handleSubmit = async(event) => {
@@ -17,6 +16,3 @@
         <div class="control"><button class="button is-dark is-outlined" type="submit">Search</button></div>
     </form>
 </div>
-
-<style>
-</style>

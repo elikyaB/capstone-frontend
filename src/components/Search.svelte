@@ -1,5 +1,5 @@
 <script>
-  import { Link, navigate } from "svelte-routing"
+  import { Link } from "svelte-routing"
   import Bar from "./Bar.svelte"
   export let notes
   export let term

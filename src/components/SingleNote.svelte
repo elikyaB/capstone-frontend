@@ -16,9 +16,3 @@
     <Link to={'/edit/' + note.id}><button class="button is-primary is-outlined">Edit</button></Link>
     <button class="button is-danger is-outlined" on:click={deleteNote(url, id)}>Delete</button>
 </div>
-    
-<style>
-</style>
-    
-
-    

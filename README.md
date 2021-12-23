@@ -1,29 +1,63 @@
-# New Project
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+# Notare - Notes App
 
-## Available Scripts
+This is the frontend for the Notare App, utilizing API from the [Masonite-Heroku backend.](https://github.com/elikyaB/seirp-p4-backend2d)
 
-### npm start
 
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
+## Technologies Used
+- HTML5
+- SASS
+- Svelte JS
+- Bulma
+- Netlify
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+## Router Route Table
 
-### npm test
+| Route | URL | Description |
+| ----- | --- | ----------- |
+| Index | `/` | GET all notes |
+| Create | `/new` | POST creates a new note |
+| Update | `/note/:id` | PUT updates a note |
+| Destroy | `/note/:id` | DELETE destroys a note
+| Show | `/note/:id` | GET for one note |
 
-Launches the test runner in the interactive watch mode.
-See the section about running tests for more information.
+## Components
+- AllNotes - show all the notes
+- Bar - form to input search criteria
+- Header - shows link to Form and additional functions - get random note and delete all notes
+- Form - template for new notes and editing existing notes, has autofill feature
+- Search - page that shows filtered notes
+- SingleNote - shows an additional note with delete, update, and return to AllNotes button
 
-### npm run build
+## Tree
+```
+App
+ |_____ HeaderNav
+          |______ Header / BurgerMenu
+ |_____ Main
+          |______ AllNotes
+          |______ SingleNote
+          |______ Form
+```
 
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
+## User Stories
+- As a user, I can see a list of all my notes when I visit the page.
+- As a user, I can click on one of my notes and have it take me to its individual page.
+- As a user, I can create a new note and see it on the main page instantly.
+- As a user, I can update a note in case I made a typo or want to change an image.
+- As a user, I can autofill the form for a note in case I'm lazy.
+- As a user, I can delete a note so I can keep my list relevant.
+- As a user, I can delete all notes to start fresh.
+- As a user, I can click a button to go to a random note.
+- As a mobile user, I can click on the abbreviated text of a note to bring up a modal with the full content
 
-**For the best production performance:** Add a build bundler plugin like [@snowpack/plugin-webpack](https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-webpack) or [snowpack-plugin-rollup-bundle](https://github.com/ParamagicDev/snowpack-plugin-rollup-bundle) to your `snowpack.config.mjs` config file.
+## Development Notes
 
-### Q: What about Eject?
+## Svelte
+Most issues boiled down to getting Svelte setup through to the deploy, including getting various plugins rendering properly. Although Svelte should be performing great on Vercel I ran into unexpected build bugs and went back to ol' faithful Netlify.
 
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
+## LoremIpsum Autofill, Random, and Delere Functions
+These were mostly an exercise in translating from my last React Project to Svelte.
+
+## Bulma and the Modals
+I was pleasantly surprised at the simplistic effectiveness of Bulma, a library I have never used yet. It made the process of putting together a modal, which I had difficulties with before, quite seamless. It also massively cut down on the overall amount of CSS I am used to writing. For Svelte Bulma has a variant called Svelma, which seemed to have potential as ready-made Svelte components. While that would cut down on the long lines of DOM element class names, I ultimately found Svelma lacking the robust functional interplay of pure Bulma. To be fair, Svelma is a brand new work in progress, and one that I'm thinking of contributing to in the future.

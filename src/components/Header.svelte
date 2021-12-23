@@ -24,7 +24,3 @@
     <div class="column"><h2 class="subtitle" on:click={random}>Fortuna</h2></div>
     <div class="column"><h2 class="subtitle" on:click={deleteAll}>Delere</h2></div>
 </div>
-
-<style>
-
-</style>

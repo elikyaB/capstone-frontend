@@ -1,7 +1,6 @@
 <script>
   import { Link } from "svelte-routing"
   import Bar from "./Bar.svelte"
-  import { ModalCard } from "svelma"
   export let notes = []
 
   let active = {}
@@ -35,6 +34,3 @@
     </div>
   {/each}
 </div>
-
-<style>
-</style>
