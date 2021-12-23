@@ -1,7 +1,7 @@
 
-# Notare - Notes App
+# Notare 2.0 - Notes App
 
-This is the frontend for the Notare App, utilizing API from the [Masonite-Heroku backend.](https://github.com/elikyaB/capstone-backend)
+This is the frontend for the Notare 2.0 App, utilizing API from the [Masonite-Heroku backend.](https://github.com/elikyaB/capstone-backend)
 
 
 ## Technologies Used
@@ -31,10 +31,10 @@ This is the frontend for the Notare App, utilizing API from the [Masonite-Heroku
 ## Tree
 ```
 App
- |_____ HeaderNav
-          |______ Header / BurgerMenu
+ |_____ Header
  |_____ Main
-          |______ AllNotes
+          |______ AllNotes / Search
+                        |______ Bar
           |______ SingleNote
           |______ Form
 ```
