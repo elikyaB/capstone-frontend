@@ -8,7 +8,6 @@
     export let url 
     export let getNotes 
 
-    let buttonLabel = "Create Note"
     let title = "" 
     let body = "" 
 
@@ -23,7 +22,6 @@
     }
 
     if (id) {
-        buttonLabel = "Confirm Edit"
         const note = notes.find((p) => p.id == id)
         title = note.title
         body = note.body
@@ -38,8 +36,6 @@
             navigate("/", { replace: true })
         }
     }
-
-    let autoFillLabel = "Autofill"
 
     let autoFill = () => {
         if (body == "" || body.endsWith(". ")) {
@@ -57,8 +53,8 @@
     <Input type="textarea" placeholder="body" bind:value={body} />
 
     <div>
-    <Button type="is-primary" on:click={autoFill}>Autofill</Button>
-    <Button type="is-primary" nativeType="submit">Submit</Button>
+    <Button type="is-light" on:click={autoFill}>Autofill</Button>
+    <Button type="is-dark" nativeType="submit">Submit</Button>
     </div>
 </form>
 </div>

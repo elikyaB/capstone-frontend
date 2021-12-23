@@ -18,15 +18,13 @@
     }
 </script>
 
-<div>
-    <Link to="/">
-        <h1>Notare</h1>
-    </Link>
-    <Link to="/new">
-        <h2>Nova</h2>
-    </Link>
-    <h2 on:click={random}>Fortuna</h2>
-    <h2 on:click={deleteAll}>Delere</h2>
+<div class="columns is-mobile is-gapless is-vcentered">
+    <div class="column is-one-third"><Link to="/"><h1 class="title">Notare</h1></Link></div>
+    <div class="column"><Link to="/new"><h2 class="subtitle">Nova</h2></Link></div>
+    <div class="column"><h2 class="subtitle" on:click={random}>Fortuna</h2></div>
+    <div class="column"><h2 class="subtitle" on:click={deleteAll}>Delere</h2></div>
 </div>
 
-<style></style>
+<style>
+
+</style>

@@ -1,20 +1,24 @@
 <script>
     import { navigate } from "svelte-routing"
+    import { Input, Button } from "svelma"
     
-    let buttonLabel = "Search"
     let term = ""
 
     let handleSubmit = async(event) => {
-        navigate("/search/"+term, {replace: true})
+        if (term.length > 0) {
+            navigate("/search/"+term, {replace: true})
+        }
     }
 
 </script>
 
-<div>
+<div class="columns">
     <form on:submit|preventDefault={handleSubmit}>
-        <input type="text" placeholder="search" bind:value="{term}">
-        <input type="submit" bind:value={buttonLabel}>
+        <div class="column is-half"><input class="input" type="text" placeholder="search" bind:value={term}/></div>
+        <div><Button type="is-dark" nativeType="submit">Search</Button></div>
     </form>
 </div>
 
-<style></style>
+<style>
+
+</style>
