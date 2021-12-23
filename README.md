@@ -6,7 +6,6 @@ This is the frontend for the Notare App, utilizing API from the [Masonite-Heroku
 
 ## Technologies Used
 - HTML5
-- SASS
 - Svelte JS
 - Bulma
 - Netlify
