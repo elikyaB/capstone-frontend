@@ -66,6 +66,9 @@
     font-size: 3rem;
     border-right: 1px solid black;
   }
+  :global(.columns .subtitle){
+    font-size: 2rem;
+  }
   :global(.columns){
     border-bottom: 1px solid black;
     margin: 0px !important;
