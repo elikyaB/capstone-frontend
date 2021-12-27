@@ -5,7 +5,6 @@
 
   let active = {}
   notes.map((n) => {active[`${n.id}`] = false})
-  console.log(active)
   const toggle = (id) => {active[`${id}`]=!active[`${id}`]}
 </script>
 

@@ -3,10 +3,8 @@
 
     let term = ""
 
-    let handleSubmit = async(event) => {
-        if (term.length > 0) {
-            navigate("/search/"+term, {replace: true})
-        }
+    let handleSubmit = async() => {
+        if (term.length > 0) {navigate("/search/"+term, {replace: true})}
     }
 </script>
 
